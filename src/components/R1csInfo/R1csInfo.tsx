@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Card from "../Card";
 
 const R1csInfo: React.FC = () => {
   const [infos, setInfos] = useState<any>({});
@@ -31,6 +32,12 @@ const R1csInfo: React.FC = () => {
       <div>
         <h3>Wires</h3>
         This ciruit has XX wires - explain what it is
+      </div>
+      <div className="max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+          <Card title="Wires" value="1003"/>
+          <Card title="Constraints" value="1000"/>
+        </div>
       </div>
       <code>
         [INFO] snarkJS: Curve: bn-128
