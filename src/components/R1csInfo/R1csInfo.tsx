@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Card from "../Card";
+import InputFile from "../InputFile";
 
 const R1csInfo: React.FC = () => {
   const [infosJson, setInfosJson] = useState<any>({});
@@ -31,6 +32,7 @@ const R1csInfo: React.FC = () => {
         <p>
           Please drag and drop the file here to read the r1cs info of the file.
         </p>
+        <InputFile />
       </div>
       <code>circuit.r1xs</code>
       <div className="max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto">
