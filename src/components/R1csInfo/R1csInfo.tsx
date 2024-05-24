@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import Card from "../Card";
 
 const R1csInfo: React.FC = () => {
-  const [infos, setInfos] = useState<any>({});
+  const [infosJson, setInfosJson] = useState<any>({});
 
   const test = async () => {
     console.log("test");
@@ -12,9 +12,12 @@ const R1csInfo: React.FC = () => {
     // const prt = await snarkjs.r1cs.print("multiply.r1cs", "multiply.sym");
     // console.log(prt);
     //@ts-ignore
+    const jsonExport = await snarkjs.r1cs.exportJson("multiply.r1cs");
+    setInfosJson(jsonExport);
+
+    //@ts-ignore
     const t = await snarkjs.r1cs.info("multiply.r1cs");
     console.log(t);
-    setInfos(t);
   };
 
   useEffect(() => {
@@ -24,33 +27,33 @@ const R1csInfo: React.FC = () => {
 
   return (
     <div>
-      <p>
-        Please drag and drop the file here to read the r1cs info of the file.
-      </p>
-      Number of constraints: XX
-      <br />
-      <div>
-        <h3>Wires</h3>
-        This ciruit has XX wires - explain what it is
+      <div className="mb-5">
+        <p>
+          Please drag and drop the file here to read the r1cs info of the file.
+        </p>
       </div>
+      <code>circuit.r1xs</code>
       <div className="max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto">
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
-          <Card title="Wires" value="1003"/>
-          <Card title="Constraints" value="1000"/>
+          <Card title="n8" value={infosJson ? infosJson.n8 : ""} />
+          <Card
+            title="Constraints"
+            value={infosJson ? infosJson.nConstraints : ""}
+          />
+          <Card title="Vars" value={infosJson ? infosJson.nVars : ""} />
+          <Card
+            title="Public Inputs"
+            value={infosJson ? infosJson.nPubInputs : ""}
+          />
+          <Card
+            title="Private Inputs"
+            value={infosJson ? infosJson.nPrvInputs : ""}
+          />
+          <Card title="Labels" value={infosJson ? infosJson.nLabels : ""} />
+          <Card title="Outputs" value={infosJson ? infosJson.nOutputs : ""} />
         </div>
       </div>
-      <code>
-        [INFO] snarkJS: Curve: bn-128
-        <br />
-        [INFO] snarkJS: # of Wires: 1003
-        <br />
-        [INFO] snarkJS: # of Constraints: 1000
-        <br />
-        [INFO] snarkJS: # of Private Inputs: 2<br />
-        [INFO] snarkJS: # of Public Inputs: 0<br />
-        [INFO] snarkJS: # of Outputs: 1
-      </code>
-      {/* <code>{JSON.stringify(infos, null, 2)}</code> */}
+      <pre>{infosJson && JSON.stringify(infosJson, null, 2)}</pre>
     </div>
   );
 };

@@ -18,6 +18,8 @@ Deployed on Vercel
 - [tailwindcss](https://tailwindcss.com/)
 - [preline](https://preline.co/index.html)
 
+- [snarkjs](https://github.com/iden3/snarkjs)
+
 ## Other
 
 Inspired by:
