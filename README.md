@@ -1,4 +1,4 @@
-# [Zktools.dev](https://zktools.dev/)
+# [ZKtools.dev](https://zktools.dev/)
 
 An online ZK debugging tool built during [ETHBerlin24](https://ethberlin.org/) 🔍.
 
@@ -11,6 +11,12 @@ npm run dev
 ## Infra
 
 Deployed on Vercel
+
+## Built with
+
+- [Next.js](https://nextjs.org/)
+- [tailwindcss](https://tailwindcss.com/)
+- [preline](https://preline.co/index.html)
 
 ## Other
 

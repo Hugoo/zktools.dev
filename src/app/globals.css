@@ -26,3 +26,21 @@ body {
     text-wrap: balance;
   }
 }
+
+@layer base {
+  h1 {
+    @apply text-2xl;
+  }
+  h2 {
+    @apply text-xl;
+  }
+
+  a {
+    @apply text-blue-500;
+  }
+
+  a:hover {
+    @apply text-blue-700;
+    @apply underline;
+  }
+}
