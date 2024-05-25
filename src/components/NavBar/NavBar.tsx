@@ -53,16 +53,16 @@ const NavBar: React.FC = () => {
         >
           <div className="flex flex-col gap-y-4 gap-x-0 mt-5 sm:flex-row sm:items-center sm:justify-end sm:gap-y-0 sm:gap-x-7 sm:mt-0 sm:ps-7">
             <Link
-              href="/verify"
-              className="font-medium text-gray-500 hover:text-gray-400 sm:py-6"
-            >
-              Verify
-            </Link>
-            <Link
               href="/r1cs"
               className="font-medium text-gray-500 hover:text-gray-400 sm:py-6"
             >
               R1CS
+            </Link>
+            <Link
+              href="/verify"
+              className="font-medium text-gray-500 hover:text-gray-400 sm:py-6"
+            >
+              Verify
             </Link>
             <Link
               href="/about"

@@ -9,10 +9,10 @@ const R1csInfo: React.FC = () => {
   const [infosJson, setInfosJson] = useState<any>({});
 
   const test = async () => {
-    console.log("test");
     //@ts-ignore
     // const prt = await snarkjs.r1cs.print("multiply.r1cs", "multiply.sym");
     // console.log(prt);
+
     //@ts-ignore
     const jsonExport = await snarkjs.r1cs.exportJson("multiply.r1cs");
     setInfosJson(jsonExport);
@@ -77,7 +77,7 @@ const R1csInfo: React.FC = () => {
           />
         </div>
       </div>
-      {/* <pre>{infosJson && JSON.stringify(infosJson, null, 2)}</pre> */}
+      <pre>{infosJson && JSON.stringify(infosJson, null, 2)}</pre>
     </div>
   );
 };
