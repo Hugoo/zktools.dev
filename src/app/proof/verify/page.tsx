@@ -1,4 +1,5 @@
 import InfoBox from "@/components/InfoBox";
+import PresetButtons from "@/components/PresetButtons";
 import VerifyForm from "@/components/VerifyForm";
 
 export default function Verify() {
@@ -9,6 +10,7 @@ export default function Verify() {
         title="Verify circuit with chosen proving system."
         description="The function verifies a zkey file and prints the hashes."
       />
+      <PresetButtons />
       <VerifyForm />
       <div>
         Resources: https://docs.circom.io/getting-started/proving-circuits/
