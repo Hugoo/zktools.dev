@@ -1,4 +1,9 @@
-const InfoBox: React.FC = () => {
+interface Props {
+  title: string;
+  description: string;
+}
+
+const InfoBox: React.FC<Props> = ({ title, description }) => {
   return (
     <div className="py-8 first:pt-0 last:pb-0">
       <div className="flex gap-x-5">
@@ -20,8 +25,8 @@ const InfoBox: React.FC = () => {
         </svg>
 
         <div>
-          <h3 className="md:text-lg font-semibold text-gray-800">Rank-1 Constraint Systems (R1CS)</h3>
-          <p className="mt-1 text-gray-500"> Method to represent computations as a system of constraints that must be satisfied by the input values. It is a form of constraint system that converts a computation into a series of polynomial equations. These equations must hold true for the zk-SNARK proof to be valid. </p>
+          <h3 className="md:text-lg font-semibold text-gray-800">{title}</h3>
+          <p className="mt-1 text-gray-500">{description}</p>
         </div>
       </div>
     </div>
