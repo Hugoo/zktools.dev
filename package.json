@@ -15,6 +15,7 @@
     "r1csfile": "^0.0.48",
     "react": "^18",
     "react-dom": "^18",
+    "react-dropzone": "^14.2.3",
     "snarkjs": "^0.7.4"
   },
   "devDependencies": {
