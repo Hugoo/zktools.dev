@@ -4,14 +4,22 @@ import { useState } from "react";
 
 const presets = [
   {
+    id: "nopreset",
+    name: "no preset",
+    color: "gray",
+  },
+  {
+    id: "multiply",
     name: "multiply.circom",
     color: "teal",
   },
   {
+    id: "add",
     name: "add.circom",
     color: "blue",
   },
   {
+    id: "divide",
     name: "divide.circom",
     color: "red",
   },
@@ -27,14 +35,14 @@ const PresetButtons: React.FC = () => {
         return (
           <button
             type="button"
-            key={preset.name}
+            key={preset.id}
             onClick={() => {
-              setSelectedPreset(preset.name);
+              setSelectedPreset(preset.id);
             }}
             className={`py-3 px-4 inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-${
               preset.color
             }-500 bg-${preset.color}-${
-              selectedPreset == preset.name ? "400" : "100"
+              selectedPreset == preset.id ? "400" : "100"
             } text-gray-800 hover:bg-${
               preset.color
             }-200 disabled:opacity-50 disabled:pointer-events-none`}
