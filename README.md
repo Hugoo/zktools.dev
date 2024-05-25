@@ -19,6 +19,7 @@ Deployed on Vercel
 - [preline](https://preline.co/index.html)
 
 - [snarkjs](https://github.com/iden3/snarkjs)
+- [Monaco Editor](https://microsoft.github.io/monaco-editor/)
 
 ## Other
 

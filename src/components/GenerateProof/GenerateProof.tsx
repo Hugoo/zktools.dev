@@ -2,20 +2,28 @@
 
 import { useEffect, useState } from "react";
 import Editor from "@monaco-editor/react";
+import JsonViewer from "../JsonViewer";
 
 const GenerateProof: React.FC = () => {
   const [proof, setProof] = useState({});
   const [inputValue, setInputValue] = useState({ x: 3, y: 11 });
+  const [error, setError] = useState(null);
 
   const generateProof = async () => {
-    // @ts-ignore
-    const { proof, publicSignals } = await snarkjs.groth16.fullProve(
-      inputValue,
-      "/multiply.wasm",
-      "/circuit_0000.zkey"
-    );
+    try {
+      // @ts-ignore
+      const { proof, publicSignals } = await snarkjs.groth16.fullProve(
+        inputValue,
+        "/multiply.wasm",
+        "/circuit_0000.zkey"
+      );
 
-    setProof(proof);
+      setProof(proof);
+      setError(null);
+    } catch (error: any) {
+      console.error(error);
+      setError(error.message);
+    }
   };
 
   useEffect(() => {
@@ -44,7 +52,11 @@ const GenerateProof: React.FC = () => {
 
       <div className="w-1/2">
         <h3>Proof</h3>
-        <pre>{JSON.stringify(proof, null, 2)}</pre>
+        {error ? (
+          <p className="text-red-500">{error}</p>
+        ) : (
+          <JsonViewer json={proof} />
+        )}
       </div>
     </div>
   );

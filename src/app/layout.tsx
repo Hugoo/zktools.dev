@@ -4,6 +4,7 @@ import { Inter } from "next/font/google";
 import NavBar from "@/components/NavBar";
 
 import "./globals.css";
+import "react-json-view-lite/dist/index.css";
 import Script from "next/script";
 
 const inter = Inter({ subsets: ["latin"] });
