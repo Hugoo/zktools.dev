@@ -1,3 +1,4 @@
+import IconSection from "@/components/IconSection";
 import Link from "next/link";
 
 export default function Home() {
@@ -55,6 +56,9 @@ export default function Home() {
           .
         </li>
       </ol>
+      <div>
+        <IconSection />
+      </div>
     </div>
   );
 }
