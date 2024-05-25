@@ -51,9 +51,9 @@ const R1csInfo: React.FC = () => {
             info="Number of mathematical equations and conditions to verify the proof."
           />
           <Card
-            title="Wires"
+            title="Variables"
             value={infosJson ? infosJson.nVars : ""}
-            info="Number of values used in the circuits that represent the computation being proved."
+            info="Number of variables involved in the computation."
           />
           <Card
             title="Public Inputs"
