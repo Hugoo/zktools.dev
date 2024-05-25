@@ -26,6 +26,10 @@ Inspired by:
 
 - [evm.codes](https://www.evm.codes/)
 
+Warning
+
+- The `zkey` file provided in this repo are used for demonstration purposes only and should not be used in production.
+
 ## Resources
 
 - <https://www.rareskills.io/post/rank-1-constraint-system>
