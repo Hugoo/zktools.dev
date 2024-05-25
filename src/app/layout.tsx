@@ -6,6 +6,7 @@ import NavBar from "@/components/NavBar";
 import "./globals.css";
 import "react-json-view-lite/dist/index.css";
 import Script from "next/script";
+import { PresetProvider } from "@/contexts/PresetContext";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -28,7 +29,7 @@ export default function RootLayout({
         <NavBar />
         <main id="content">
           <div className="max-w-[85rem] mx-auto min-h-screen bg-white border-x-gray-200 py-10 px-4 sm:px-6 lg:px-8 xl:border-x">
-            {children}
+            <PresetProvider>{children}</PresetProvider>
           </div>
         </main>
       </body>

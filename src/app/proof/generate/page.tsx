@@ -1,3 +1,5 @@
+"use client";
+
 import GenerateProof from "@/components/GenerateProof";
 import InfoBox from "@/components/InfoBox";
 import PresetButtons from "@/components/PresetButtons";

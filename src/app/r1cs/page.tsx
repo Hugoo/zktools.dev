@@ -1,3 +1,5 @@
+"use client";
+
 import InfoBox from "@/components/InfoBox";
 import PresetButtons from "@/components/PresetButtons";
 import R1csInfo from "@/components/R1csInfo";

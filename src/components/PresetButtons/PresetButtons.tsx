@@ -1,6 +1,7 @@
 "use client";
 
-import { useState } from "react";
+import { PresetContext } from "@/contexts/PresetContext";
+import { useContext } from "react";
 
 const presets = [
   {
@@ -26,28 +27,28 @@ const presets = [
 ];
 
 const PresetButtons: React.FC = () => {
-  const [selectedPreset, setSelectedPreset] = useState(presets[0].name);
+  const { preset, setPresetValue } = useContext(PresetContext);
 
   return (
     <div className="mb-8 flex justify-center space-x-4 items-center">
       <span className="font-bold">Preset</span>
-      {presets.map((preset) => {
+      {presets.map((p) => {
         return (
           <button
             type="button"
-            key={preset.id}
+            key={p.id}
             onClick={() => {
-              setSelectedPreset(preset.id);
+              setPresetValue(p.id);
             }}
             className={`py-3 px-4 inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-${
-              preset.color
-            }-500 bg-${preset.color}-${
-              selectedPreset == preset.id ? "400" : "100"
+              p.color
+            }-500 bg-${p.color}-${
+              preset == p.id ? "400" : "0"
             } text-gray-800 hover:bg-${
-              preset.color
+              p.color
             }-200 disabled:opacity-50 disabled:pointer-events-none`}
           >
-            {preset.name}
+            {p.name}
           </button>
         );
       })}
