@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 const presets = [
   {
@@ -31,9 +31,9 @@ const PresetButtons: React.FC = () => {
             onClick={() => {
               setSelectedPreset(preset.name);
             }}
-            className={`py-3 px-4 inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent bg-${
+            className={`py-3 px-4 inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-${
               preset.color
-            }-${
+            }-500 bg-${preset.color}-${
               selectedPreset == preset.name ? "400" : "100"
             } text-gray-800 hover:bg-${
               preset.color

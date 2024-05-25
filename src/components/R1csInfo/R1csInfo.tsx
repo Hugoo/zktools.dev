@@ -9,11 +9,7 @@ import JsonViewer from "../JsonViewer";
 const R1csInfo: React.FC = () => {
   const [infosJson, setInfosJson] = useState<any>({});
 
-  const test = async () => {
-    //@ts-ignore
-    // const prt = await snarkjs.r1cs.print("multiply.r1cs", "multiply.sym");
-    // console.log(prt);
-
+  const getInfos = async () => {
     //@ts-ignore
     const jsonExport = await snarkjs.r1cs.exportJson("multiply.r1cs");
     setInfosJson(jsonExport);
@@ -24,8 +20,7 @@ const R1csInfo: React.FC = () => {
   };
 
   useEffect(() => {
-    console.log("useEffect");
-    test();
+    getInfos();
   }, []);
 
   return (

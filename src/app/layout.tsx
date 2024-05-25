@@ -10,7 +10,7 @@ import Script from "next/script";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "ZKtools.dev - Zero Knowledge Tools for Developers",
+  title: "🤫🔍 ZKtools.dev - Zero Knowledge Tools for Developers",
   description: "Zero Knowledge Tools for Developers",
 };
 
