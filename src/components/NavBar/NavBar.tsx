@@ -1,6 +1,11 @@
+"use client";
+
 import Link from "next/link";
+import { useState } from "react";
 
 const NavBar: React.FC = () => {
+  const [isCollapsed, setIsCollapsed] = useState(true);
+
   return (
     <header className="flex flex-wrap sm:justify-start sm:flex-nowrap z-50 w-full bg-white border-b border-gray-200 text-sm py-3 sm:py-0">
       <nav
@@ -22,6 +27,7 @@ const NavBar: React.FC = () => {
               data-hs-collapse="#navbar-collapse-with-animation"
               aria-controls="navbar-collapse-with-animation"
               aria-label="Toggle navigation"
+              onClick={() => setIsCollapsed(!isCollapsed)}
             >
               <svg
                 className="hs-collapse-open:hidden size-4"
@@ -49,7 +55,9 @@ const NavBar: React.FC = () => {
         </div>
         <div
           id="navbar-collapse-with-animation"
-          className="hs-collapse hidden overflow-hidden transition-all duration-300 basis-full grow sm:block"
+          className={`${
+            isCollapsed ? "hidden" : ""
+          } hs-collapse overflow-hidden transition-all duration-300 basis-full grow sm:block`}
         >
           <div className="flex flex-col gap-y-4 gap-x-0 mt-5 sm:flex-row sm:items-center sm:justify-end sm:gap-y-0 sm:gap-x-7 sm:mt-0 sm:ps-7">
             <Link

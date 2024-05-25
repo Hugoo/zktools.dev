@@ -1,7 +1,12 @@
 export default function Home() {
   return (
     <div>
-      <h1 className="mb-5">Steps</h1>
+      <p className="text-2xl mb-5">
+        Welcome to ZKTools.dev - this website is a tool to help you understand
+        and work zith ZK related files, proof, algorithms. It was built
+        initially during ETHBerlin 2024.
+      </p>
+      <h1 className="font-bold text-4xl mb-5">Steps</h1>
       <ol className="list-inside list-decimal">
         <li className="mb-3">
           <strong className="text-green-500">
@@ -26,7 +31,7 @@ export default function Home() {
         </li>
         <li className="mb-3">
           <strong className="text-blue-500">
-            <code>[🧑‍🔧 prover ‎ ]</code>
+            <code>[🧑‍🔧 ‎ prover ‎]</code>
           </strong>{" "}
           Uses the R1CS and WASM files from step 2 and the proving key from step
           3 to create a proof.
