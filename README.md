@@ -25,3 +25,8 @@ Deployed on Vercel
 Inspired by:
 
 - [evm.codes](https://www.evm.codes/)
+
+## Resources
+
+- <https://www.rareskills.io/post/rank-1-constraint-system>
+- <https://docs.circom.io/getting-started/proving-circuits/>
