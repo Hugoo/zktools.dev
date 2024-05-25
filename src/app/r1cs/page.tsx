@@ -9,7 +9,7 @@ export default function R1CS() {
     <div>
       <InfoBox
         title="Rank-1 Constraint Systems (R1CS)"
-        description="Method to represent computations as a system of constraints that must be satisfied by the input values. It is a form of constraint system that converts a computation into a series of polynomial equations. These equations must hold true for the zk-SNARK proof to be valid."
+        description="This method converts computations into a system of constraints, expressed as polynomial equations. These equations must be satisfied by input values for a valid zk-SNARK proof."
       />
       <PresetButtons />
       <R1csInfo />
