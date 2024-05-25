@@ -1,4 +1,4 @@
-# [ZKtools.dev](https://zktools.dev/)
+# [🤫🔍 ZKtools.dev](https://zktools.dev/)
 
 An online ZK debugging tool built during [ETHBerlin24](https://ethberlin.org/) 🔍.
 
