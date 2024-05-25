@@ -1,10 +1,15 @@
 import { useDropzone, FileWithPath } from "react-dropzone";
 
-const Drop: React.FC = (props) => {
+interface Props {
+  onDrop: (files: FileWithPath[]) => void;
+}
+
+const Drop: React.FC<Props> = ({ onDrop }) => {
   const { acceptedFiles, getRootProps, getInputProps } = useDropzone({
     accept: {
       "application/octet-stream": [".r1cs"],
     },
+    onDrop,
   });
 
   const files = acceptedFiles.map((file: FileWithPath) => (
