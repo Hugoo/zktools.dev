@@ -89,34 +89,6 @@ const IconSection: React.FC = () => {
               </p>
             </div>
           </div>
-
-          <div>
-            <div className="relative flex justify-center items-center size-12 bg-white rounded-xl before:absolute before:-inset-px before:-z-[1] before:bg-gradient-to-br before:from-blue-600 before:via-transparent before:to-violet-600 before:rounded-xl">
-              <svg
-                className="flex-shrink-0 size-6 text-blue-600"
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <path d="M14 9a2 2 0 0 1-2 2H6l-4 4V4c0-1.1.9-2 2-2h8a2 2 0 0 1 2 2v5Z" />
-                <path d="M18 9h2a2 2 0 0 1 2 2v11l-4-4h-6a2 2 0 0 1-2-2v-1" />
-              </svg>
-            </div>
-            <div className="mt-5">
-              <h3 className="text-lg font-semibold text-gray-800">
-                24/7 Support
-              </h3>
-              <p className="mt-1 text-gray-600">
-                Contact us 24 hours a day, 7 days a week
-              </p>
-            </div>
-          </div>
         </div>
       </div>
     </div>

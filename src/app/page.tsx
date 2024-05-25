@@ -4,8 +4,8 @@ import Link from "next/link";
 export default function Home() {
   return (
     <div>
-      <h1 className="font-bold text-4xl mb-5">
-        Your zero-knowledge proofs (ZKPs) journey
+      <h1 className="font-bold text-2xl mb-5">
+        Your Zero-Knowledge Proofs (ZKPs) journey
       </h1>
       <ol className="list-inside list-decimal text-gray-500">
         <li className="mb-3">
@@ -56,7 +56,7 @@ export default function Home() {
           .
         </li>
       </ol>
-      <div>
+      <div className="mt-6">
         <IconSection />
       </div>
     </div>
