@@ -9,7 +9,7 @@ export default function Generate() {
   return (
     <div>
       <InfoBox
-        title="Generate zero-knowledge proof with chosen proving system."
+        title="Generate Zero-Knowledge Proof with chosen proving system"
         description="The function takes the proving key, the private witness and a public value as inputs."
       />
       <PresetButtons />

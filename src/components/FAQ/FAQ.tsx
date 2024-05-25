@@ -15,7 +15,7 @@ const FAQ: React.FC = () => {
           />
           <FAQItem
             question="Project history"
-            answer="The project started during ETH Berlin 2024."
+            answer="The project started during ETHBerlin 2024."
           />
           <FAQItem
             question="Sources"

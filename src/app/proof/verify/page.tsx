@@ -13,9 +13,6 @@ export default function Verify() {
       />
       <PresetButtons />
       <VerifyForm />
-      <div>
-        Resources: https://docs.circom.io/getting-started/proving-circuits/
-      </div>
     </div>
   );
 }

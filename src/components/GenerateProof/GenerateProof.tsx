@@ -1,21 +1,30 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { use, useContext, useEffect, useState } from "react";
 import Editor from "@monaco-editor/react";
 import JsonViewer from "../JsonViewer";
+import { PresetContext } from "@/contexts/PresetContext";
 
 const GenerateProof: React.FC = () => {
   const [proof, setProof] = useState({});
-  const [inputValue, setInputValue] = useState({ x: 3, y: 11 });
+  const [inputValue, setInputValue] = useState<Record<string, any>>({
+    x: 3,
+    y: 11,
+  });
   const [error, setError] = useState(null);
+  const { preset } = useContext(PresetContext);
 
   const generateProof = async () => {
+    if (preset === "nopreset") {
+      return;
+    }
+
     try {
       // @ts-ignore
       const { proof, publicSignals } = await snarkjs.groth16.fullProve(
         inputValue,
-        "/multiply.wasm",
-        "/circuit_0000.zkey"
+        "/" + preset + ".wasm",
+        "/" + preset + ".zkey"
       );
 
       setProof(proof);
@@ -28,7 +37,23 @@ const GenerateProof: React.FC = () => {
 
   useEffect(() => {
     generateProof();
-  }, [inputValue]);
+  }, [inputValue, preset]);
+
+  useEffect(() => {
+    switch (preset) {
+      case "multiply":
+        setInputValue({ x: 3, y: 11 });
+        break;
+      case "add":
+        setInputValue({ a: 6, b: 10 });
+        break;
+      case "withdraw":
+        setInputValue({ a: 6, b: 10 });
+        break;
+      default:
+        break;
+    }
+  }, [preset]);
 
   return (
     <div className="flex space-x-6">

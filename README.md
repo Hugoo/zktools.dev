@@ -17,7 +17,6 @@ Deployed on Vercel
 - [Next.js](https://nextjs.org/)
 - [tailwindcss](https://tailwindcss.com/)
 - [preline](https://preline.co/index.html)
-
 - [snarkjs](https://github.com/iden3/snarkjs)
 - [Monaco Editor](https://microsoft.github.io/monaco-editor/)
 
