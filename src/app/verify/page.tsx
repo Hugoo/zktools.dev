@@ -4,8 +4,7 @@ export default function Verify() {
   return (
     <div>
       <h1>Verify</h1>
-      Add select input: fflonk, groth16, plonk
-      <InfoBox />
+      <InfoBox title="Verify circuit with chosen proving system." description = "The function verifies a zkey file and prints the hashes." />
     </div>
   );
 }
