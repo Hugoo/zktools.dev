@@ -9,9 +9,10 @@ const VerifyForm: React.FC = () => {
       </label>
       <select
         id="hs-select-label"
+        defaultValue={"Groth16"}
         className="py-3 px-4 pe-9 block w-full border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none"
       >
-        <option selected>Groth16</option>
+        <option>Groth16</option>
         <option>FFLONK (coming soon)</option>
         <option>Plonk (coming soon)</option>
       </select>

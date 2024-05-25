@@ -64,13 +64,19 @@ const NavBar: React.FC = () => {
               href="/r1cs"
               className="font-medium text-gray-500 hover:text-gray-400 sm:py-6"
             >
-              R1CS
+              Analyse R1CS
             </Link>
             <Link
-              href="/verify"
+              href="/proof/generate"
               className="font-medium text-gray-500 hover:text-gray-400 sm:py-6"
             >
-              Verify
+              Generate Proof
+            </Link>
+            <Link
+              href="/proof/verify"
+              className="font-medium text-gray-500 hover:text-gray-400 sm:py-6"
+            >
+              Verify Proof
             </Link>
             <Link
               href="/about"
