@@ -20,8 +20,8 @@ const presets = [
     color: "blue",
   },
   {
-    id: "divide",
-    name: "divide.circom",
+    id: "deposit",
+    name: "deposit.circom",
     color: "red",
   },
 ];

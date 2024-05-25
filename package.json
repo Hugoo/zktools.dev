@@ -12,6 +12,7 @@
     "@monaco-editor/react": "^4.6.0",
     "@noir-lang/backend_barretenberg": "^0.30.0",
     "@noir-lang/noir_js": "^0.30.0",
+    "circomlib": "^2.0.5",
     "next": "14.2.3",
     "r1csfile": "^0.0.48",
     "react": "^18",

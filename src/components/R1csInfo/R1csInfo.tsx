@@ -1,27 +1,38 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 
 import Card from "../Card";
 import Drop from "../Drop";
 import JsonViewer from "../JsonViewer";
+import { PresetContext } from "@/contexts/PresetContext";
 
 const R1csInfo: React.FC = () => {
   const [infosJson, setInfosJson] = useState<any>({});
+  const { preset } = useContext(PresetContext);
+  const [isLoading, setIsLoading] = useState(false);
 
   const getInfos = async () => {
+    if (preset === "nopreset") {
+      setInfosJson({});
+      return;
+    }
+
+    setIsLoading(true);
+
     //@ts-ignore
-    const jsonExport = await snarkjs.r1cs.exportJson("multiply.r1cs");
+    const jsonExport = await snarkjs.r1cs.exportJson(`${preset}.r1cs`);
     setInfosJson(jsonExport);
 
     //@ts-ignore
-    const t = await snarkjs.r1cs.info("multiply.r1cs");
+    const t = await snarkjs.r1cs.info(`${preset}.r1cs`);
     console.log(t);
+    setIsLoading(false);
   };
 
   useEffect(() => {
     getInfos();
-  }, []);
+  }, [preset]);
 
   return (
     <div>
@@ -34,6 +45,7 @@ const R1csInfo: React.FC = () => {
           }}
         />
       </div>
+      {isLoading && "Loading..."}
       <div className="max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto">
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
           <Card
