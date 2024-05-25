@@ -27,6 +27,12 @@ body {
   h2 {
     @apply text-xl;
   }
+  h3 {
+    @apply md:text-lg;
+    @apply font-semibold;
+    @apply mb-4;
+    @apply text-gray-800;
+  }
 
   a {
     @apply text-blue-500;

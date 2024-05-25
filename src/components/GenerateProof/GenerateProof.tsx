@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Editor from "@monaco-editor/react";
 
 const GenerateProof: React.FC = () => {
   const [proof, setProof] = useState({});
@@ -22,19 +23,29 @@ const GenerateProof: React.FC = () => {
   }, [inputValue]);
 
   return (
-    <div>
-      <h2>Generate proofs</h2>
-      <h3>Input</h3>
-      <textarea
-        onChange={(e) => {
-          setInputValue(JSON.parse(e.target.value));
-        }}
-      >
-        {JSON.stringify(inputValue, null, 2)}
-      </textarea>
+    <div className="flex space-x-6">
+      <div className="w-1/2">
+        <h3 className="md:text-lg font-semibold text-gray-800">Input</h3>
 
-      <h3>Proof</h3>
-      <pre>{JSON.stringify(proof, null, 2)}</pre>
+        <Editor
+          height="50vh"
+          defaultLanguage="json"
+          onChange={(value) => {
+            setInputValue(JSON.parse(value || ""));
+          }}
+          defaultValue={JSON.stringify(inputValue, null, 2)}
+          options={{
+            readOnly: false,
+            minimap: { enabled: false },
+            fontSize: 18,
+          }}
+        />
+      </div>
+
+      <div className="w-1/2">
+        <h3>Proof</h3>
+        <pre>{JSON.stringify(proof, null, 2)}</pre>
+      </div>
     </div>
   );
 };

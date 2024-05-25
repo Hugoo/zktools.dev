@@ -12,7 +12,6 @@ export default function Generate() {
       />
       <VerifyForm />
       <GenerateProof />
-      <div>Resources: XX</div>
     </div>
   );
 }
