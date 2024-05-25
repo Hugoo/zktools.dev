@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 
 import Card from "../Card";
 import Drop from "../Drop";
+import JsonViewer from "../JsonViewer";
 
 const R1csInfo: React.FC = () => {
   const [infosJson, setInfosJson] = useState<any>({});
@@ -77,7 +78,7 @@ const R1csInfo: React.FC = () => {
           />
         </div>
       </div>
-      <pre>{infosJson && JSON.stringify(infosJson, null, 2)}</pre>
+      <JsonViewer json={infosJson} />
     </div>
   );
 };

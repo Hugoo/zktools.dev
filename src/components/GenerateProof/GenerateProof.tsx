@@ -33,7 +33,7 @@ const GenerateProof: React.FC = () => {
   return (
     <div className="flex space-x-6">
       <div className="w-1/2">
-        <h3 className="md:text-lg font-semibold text-gray-800">Input</h3>
+        <h3 className="mb-5">Input</h3>
 
         <Editor
           height="50vh"
@@ -51,7 +51,7 @@ const GenerateProof: React.FC = () => {
       </div>
 
       <div className="w-1/2">
-        <h3>Proof</h3>
+        <h3 className="mb-5">Proof</h3>
         {error ? (
           <p className="text-red-500">{error}</p>
         ) : (
