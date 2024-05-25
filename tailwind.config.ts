@@ -15,6 +15,16 @@ const config: Config = {
       },
     },
   },
+  purge: {
+    safelist: [
+      "bg-blue-400",
+      "bg-teal-400",
+      "bg-red-400",
+      "bg-blue-100",
+      "bg-teal-100",
+      "bg-red-100",
+    ],
+  },
   plugins: [],
 };
 export default config;

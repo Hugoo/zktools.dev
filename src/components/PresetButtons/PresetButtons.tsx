@@ -21,8 +21,8 @@ const PresetButtons: React.FC = () => {
   const [selectedPreset, setSelectedPreset] = useState(presets[0].name);
 
   return (
-    <div className="flex space-x-4 items-center">
-      <span>Preset</span>
+    <div className="mb-8 flex justify-center space-x-4 items-center">
+      <span className="font-bold">Preset</span>
       {presets.map((preset) => {
         return (
           <button
@@ -34,7 +34,7 @@ const PresetButtons: React.FC = () => {
             className={`py-3 px-4 inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent bg-${
               preset.color
             }-${
-              selectedPreset == preset.name ? "300" : "100"
+              selectedPreset == preset.name ? "400" : "100"
             } text-gray-800 hover:bg-${
               preset.color
             }-200 disabled:opacity-50 disabled:pointer-events-none`}
