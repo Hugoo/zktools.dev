@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 interface Props {
   title: string;
   value: string;
@@ -5,6 +7,8 @@ interface Props {
 }
 
 const Card: React.FC<Props> = ({ title, value, info }) => {
+  const [isShown, setIsShown] = useState(false);
+
   return (
     <div className="flex flex-col bg-white border shadow-sm rounded-xl">
       <div className="p-4 md:p-5">
@@ -18,8 +22,16 @@ const Card: React.FC<Props> = ({ title, value, info }) => {
           <h3 className="text-xl sm:text-2xl font-medium text-gray-800">
             {value}
           </h3>{" "}
-          <div className="hs-tooltip">
-            <div className="hs-tooltip-toggle">
+          <div
+            className="hover:cursor-pointer"
+            onMouseLeave={() => {
+              setIsShown(false);
+            }}
+            onMouseEnter={() => {
+              setIsShown(true);
+            }}
+          >
+            <div>
               <svg
                 className="flex-shrink-0 size-4 text-gray-500"
                 xmlns="http://www.w3.org/2000/svg"
@@ -37,8 +49,11 @@ const Card: React.FC<Props> = ({ title, value, info }) => {
                 <path d="M12 17h.01" />
               </svg>
               <span
-                className="hs-tooltip-content hs-tooltip-shown:opacity-100 hs-tooltip-shown:visible opacity-0 transition-opacity inline-block absolute invisible z-10 py-1 px-2 bg-gray-900 text-xs font-medium text-white rounded shadow-sm"
-                role="tooltip"
+                className={`${
+                  isShown ? "opacity-100" : "opacity-0"
+                } transition-opacity inline-block absolute ${
+                  isShown ? "" : "invisble"
+                } z-10 py-1 px-2 bg-gray-900 text-xs font-medium text-white rounded shadow-sm`}
               >
                 {info}
               </span>

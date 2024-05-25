@@ -1,3 +1,5 @@
+"use client";
+
 import InfoBox from "@/components/InfoBox";
 import PresetButtons from "@/components/PresetButtons";
 import VerifyForm from "@/components/VerifyForm";

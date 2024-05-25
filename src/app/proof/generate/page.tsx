@@ -1,5 +1,8 @@
+"use client";
+
 import GenerateProof from "@/components/GenerateProof";
 import InfoBox from "@/components/InfoBox";
+import PresetButtons from "@/components/PresetButtons";
 import VerifyForm from "@/components/VerifyForm";
 
 export default function Generate() {
@@ -10,6 +13,7 @@ export default function Generate() {
         title="Generate zero-knowledge proof with chosen proving system."
         description="The function takes the proving key, the private witness and a public value as inputs."
       />
+      <PresetButtons />
       <VerifyForm />
       <GenerateProof />
     </div>

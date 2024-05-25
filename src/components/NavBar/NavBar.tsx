@@ -1,10 +1,12 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useState } from "react";
 
 const NavBar: React.FC = () => {
   const [isCollapsed, setIsCollapsed] = useState(true);
+  const pathname = usePathname();
 
   return (
     <header className="flex flex-wrap sm:justify-start sm:flex-nowrap z-50 w-full bg-white border-b border-gray-200 text-sm py-3 sm:py-0">
@@ -62,25 +64,33 @@ const NavBar: React.FC = () => {
           <div className="flex flex-col gap-y-4 gap-x-0 mt-5 sm:flex-row sm:items-center sm:justify-end sm:gap-y-0 sm:gap-x-7 sm:mt-0 sm:ps-7">
             <Link
               href="/r1cs"
-              className="font-medium text-gray-500 hover:text-gray-400 sm:py-6"
+              className={`${
+                pathname == "/r1cs" ? "font-bold" : "font-medium"
+              } text-gray-500 hover:text-gray-400 sm:py-6`}
             >
               Analyse R1CS
             </Link>
             <Link
               href="/proof/generate"
-              className="font-medium text-gray-500 hover:text-gray-400 sm:py-6"
+              className={`${
+                pathname == "/proof/generate" ? "font-bold" : "font-medium"
+              } text-gray-500 hover:text-gray-400 sm:py-6`}
             >
               Generate Proof
             </Link>
             <Link
               href="/proof/verify"
-              className="font-medium text-gray-500 hover:text-gray-400 sm:py-6"
+              className={`${
+                pathname == "/proof/verify" ? "font-bold" : "font-medium"
+              } text-gray-500 hover:text-gray-400 sm:py-6`}
             >
               Verify Proof
             </Link>
             <Link
               href="/about"
-              className="font-medium text-gray-500 hover:text-gray-400 sm:py-6"
+              className={`${
+                pathname == "/about" ? "font-bold" : "font-medium"
+              } text-gray-500 hover:text-gray-400 sm:py-6`}
             >
               About
             </Link>
