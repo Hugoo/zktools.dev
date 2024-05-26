@@ -7,7 +7,7 @@ export default function Home() {
       <h1 className="font-bold text-2xl mb-5">
         Your Zero-Knowledge Proofs (ZKPs) journey
       </h1>
-      <ol className="list-inside list-decimal text-gray-500">
+      <ol className="list-inside list-decimal text-gray-500 mb-8">
         <li className="mb-3">
           <strong className="text-green-500">
             <code>[🕵️‍♀️ verifier]</code>
@@ -56,7 +56,7 @@ export default function Home() {
           .
         </li>
       </ol>
-      <div className="mt-6">
+      <div className="mt-[30px]">
         <IconSection />
       </div>
     </div>
