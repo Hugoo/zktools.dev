@@ -2,6 +2,8 @@
 
 An online ZK debugging tool built during [ETHBerlin24](https://ethberlin.org/) 🔍.
 
+![ceremonies](./docs/ceremonies.png)
+
 ## How to run
 
 ```bash
