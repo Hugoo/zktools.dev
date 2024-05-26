@@ -23,7 +23,7 @@ const IconSection: React.FC = () => {
           </div>
 
           <div className="text-center">
-            <div className="relative flex justify-center  text-8xl bg-white">
+            <div className="relative flex justify-center text-8xl bg-white">
               🐨
             </div>
             <div className="mt-5">
@@ -40,6 +40,9 @@ const IconSection: React.FC = () => {
             </div>
           </div>
         </div>
+      </div>
+      <div>
+        <img width={800} className="mx-auto" src="/ceremonies.png" />
       </div>
     </div>
   );
