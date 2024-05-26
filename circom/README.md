@@ -19,7 +19,15 @@ Ceremonies:
 
 ```sh
 # from output/ folder
-snarkjs zkey contribute add.zkey add_0001.zkey --name="Panda" -v
+snarkjs zkey contribute add.zkey add_0001.zkey --name="🐼 Panda Pazu" -v
+
+##
+
+snarkjs zkey contribute multiply.zkey multiply_0001.zkey --name="🐼 Panda Pazu" -v
+snarkjs zkey contribute multiply_0001.zkey multiply_0002.zkey --name="🐨 Koala Koro" -v
+# deadbeef is the beacon
+snarkjs zkey beacon multiply_0002.zkey multiply_final.zkey deadbeef 10 -n="Final Beacon phase2"
+snarkjs zkey export verificationkey multiply_final.zkey multiply_verification_key.json
 ```
 
 ## Sources

@@ -1,12 +1,13 @@
 "use client";
 
-import { use, useContext, useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import Editor from "@monaco-editor/react";
 import JsonViewer from "../JsonViewer";
 import { PresetContext } from "@/contexts/PresetContext";
 
 const GenerateProof: React.FC = () => {
   const [proof, setProof] = useState({});
+  const [publicSignal, setPublicSignal] = useState({});
   const [inputValue, setInputValue] = useState<Record<string, any>>({
     x: 3,
     y: 11,
@@ -24,16 +25,17 @@ const GenerateProof: React.FC = () => {
       const { proof, publicSignals } = await snarkjs.groth16.fullProve(
         inputValue,
         "/" + preset + ".wasm",
-        "/" + preset + ".zkey"
+        "/" + preset + "_final.zkey"
       );
 
-      console.log("Public signals", publicSignals);
-
       setProof(proof);
+      setPublicSignal(publicSignals);
       setError(null);
     } catch (error: any) {
       console.error(error);
       setError(error.message);
+      setPublicSignal({});
+      setProof({});
     }
   };
 
@@ -58,32 +60,39 @@ const GenerateProof: React.FC = () => {
   }, [preset]);
 
   return (
-    <div className="flex space-x-6">
-      <div className="w-1/2">
-        <h3 className="mb-5">Input</h3>
+    <div>
+      <div className="flex space-x-6">
+        <div className="w-1/2">
+          <h3 className="mb-5">📝 Input</h3>
 
-        <Editor
-          height="50vh"
-          defaultLanguage="json"
-          onChange={(value) => {
-            setInputValue(JSON.parse(value || ""));
-          }}
-          defaultValue={JSON.stringify(inputValue, null, 2)}
-          options={{
-            readOnly: false,
-            minimap: { enabled: false },
-            fontSize: 18,
-          }}
-        />
+          <Editor
+            height="50vh"
+            defaultLanguage="json"
+            onChange={(value) => {
+              setInputValue(JSON.parse(value || ""));
+            }}
+            defaultValue={JSON.stringify(inputValue, null, 2)}
+            options={{
+              readOnly: false,
+              minimap: { enabled: false },
+              fontSize: 18,
+            }}
+          />
+        </div>
+
+        <div className="w-1/2">
+          <h3 className="mb-5">🤝 Proof</h3>
+          {error ? (
+            <p className="text-red-500">{error}</p>
+          ) : (
+            <JsonViewer json={proof} />
+          )}
+        </div>
       </div>
-
-      <div className="w-1/2">
-        <h3 className="mb-5">Proof</h3>
-        {error ? (
-          <p className="text-red-500">{error}</p>
-        ) : (
-          <JsonViewer json={proof} />
-        )}
+      <div>
+        <h3 className="mb-5">✅ Public Signal (output)</h3>
+        <p className="mb-5">This is the output of the circuit.</p>
+        <code>{JSON.stringify(publicSignal, null, 2)}</code>
       </div>
     </div>
   );
