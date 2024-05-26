@@ -58,7 +58,7 @@ const VerifyForm: React.FC = () => {
 
       <div className="flex space-x-4 mt-4">
         <div className="w-1/3">
-          <h3 className="mb-5">Verification key file</h3>
+          <h3 className="mb-5">🔑 Verification key file</h3>
           <Drop
             accept={{
               "application/json": [".json"],
