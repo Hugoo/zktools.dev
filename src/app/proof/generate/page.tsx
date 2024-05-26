@@ -3,7 +3,6 @@
 import GenerateProof from "@/components/GenerateProof";
 import InfoBox from "@/components/InfoBox";
 import PresetButtons from "@/components/PresetButtons";
-import VerifyForm from "@/components/VerifyForm";
 
 export default function Generate() {
   return (
@@ -13,7 +12,6 @@ export default function Generate() {
         description="The function takes the proving key, the private witness and a public value as inputs."
       />
       <PresetButtons />
-      <VerifyForm />
       <GenerateProof />
     </div>
   );

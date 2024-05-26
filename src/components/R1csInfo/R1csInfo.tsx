@@ -38,6 +38,10 @@ const R1csInfo: React.FC = () => {
     <div>
       <div className="mb-5">
         <Drop
+          title=".r1cs"
+          accept={{
+            "application/octet-stream": [".r1cs"],
+          }}
           onDrop={(f) => {
             // Sadly, the snarkjs lib only loads files that are available via "fetch". We can not input a File in the fonction...
             // We will upload a bunch of demo files for now so user can see how it works.

@@ -1,14 +1,14 @@
 import { useDropzone, FileWithPath } from "react-dropzone";
 
 interface Props {
+  title: string;
+  accept: Record<string, string[]>;
   onDrop: (files: FileWithPath[]) => void;
 }
 
-const Drop: React.FC<Props> = ({ onDrop }) => {
+const Drop: React.FC<Props> = ({ title, onDrop, accept }) => {
   const { acceptedFiles, getRootProps, getInputProps } = useDropzone({
-    accept: {
-      "application/octet-stream": [".r1cs"],
-    },
+    accept,
     onDrop,
   });
 
@@ -39,9 +39,9 @@ const Drop: React.FC<Props> = ({ onDrop }) => {
           </svg>
           <p className="mb-2 text-sm text-gray-500">
             <span className="font-semibold">Click to upload</span> or drag and
-            drop .r1cs file
+            drop the file
           </p>
-          <p className="text-xs text-gray-500">.r1cs</p>
+          <p className="text-xs text-gray-500">{title}</p>
         </>
       );
     }

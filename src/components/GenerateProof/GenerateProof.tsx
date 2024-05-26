@@ -27,6 +27,8 @@ const GenerateProof: React.FC = () => {
         "/" + preset + ".zkey"
       );
 
+      console.log("Public signals", publicSignals);
+
       setProof(proof);
       setError(null);
     } catch (error: any) {
