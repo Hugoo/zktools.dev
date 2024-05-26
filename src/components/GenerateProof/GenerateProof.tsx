@@ -87,6 +87,14 @@ const GenerateProof: React.FC = () => {
           ) : (
             <JsonViewer json={proof} />
           )}
+          <button
+            className="mt-4 px-4 py-1 border border-gray-300 rounded-lg bg-gray-100 hover:bg-gray-200"
+            onClick={() => {
+              navigator.clipboard.writeText(JSON.stringify(proof, null, 2));
+            }}
+          >
+            Copy
+          </button>
         </div>
       </div>
       <div>

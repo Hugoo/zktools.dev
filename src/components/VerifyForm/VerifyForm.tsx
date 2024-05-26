@@ -11,6 +11,7 @@ const VerifyForm: React.FC = () => {
   const { preset } = useContext(PresetContext);
   const [publicSignal, setPublicSignal] = useState<string[]>([]);
   const [isVerificationOk, setIsVerificationOk] = useState<boolean>(false);
+  const [proof, setProof] = useState<Record<string, any>>({});
   const [error, setError] = useState(null);
 
   const verifyProof = async () => {
@@ -22,31 +23,7 @@ const VerifyForm: React.FC = () => {
       // TODO: note this is hard coded for now, will need to connect to the UI later.
 
       // @ts-ignore
-      const res = await snarkjs.groth16.verify(vKey, publicSignal, {
-        pi_a: [
-          "1393580441020128218519106715697873775569417213570686832742835052283362005305",
-          "12388469249328689574997154758848339921107470536356844565860107797072698121767",
-          "1",
-        ],
-        pi_b: [
-          [
-            "17419695377237733310055881936502383709451516231827198443751146709815189711105",
-            "18228280762917020502210154859006640824691857586101411209974811598016881778898",
-          ],
-          [
-            "18018286260139835755554116344914195853864674363006183287009121490638423864035",
-            "13589811653694525215052029174735645283467496056651478297295874018552343602061",
-          ],
-          ["1", "0"],
-        ],
-        pi_c: [
-          "13247858145517388040697155696953739266714913023528223590375236419106590883310",
-          "17336916051602350087735664905642385465973780681339115635739823829361880537160",
-          "1",
-        ],
-        protocol: "groth16",
-        curve: "bn128",
-      });
+      const res = await snarkjs.groth16.verify(vKey, publicSignal, proof);
 
       if (res === true) {
         setIsVerificationOk(true);
@@ -63,7 +40,7 @@ const VerifyForm: React.FC = () => {
 
   useEffect(() => {
     verifyProof();
-  }, [preset, publicSignal]);
+  }, [preset, publicSignal, proof]);
 
   return (
     <div>
@@ -80,7 +57,8 @@ const VerifyForm: React.FC = () => {
       </div>
 
       <div className="flex space-x-4 mt-4">
-        <div className="w-1/2">
+        <div className="w-1/3">
+          <h3 className="mb-5">Verification key file</h3>
           <Drop
             accept={{
               "application/json": [".json"],
@@ -91,14 +69,19 @@ const VerifyForm: React.FC = () => {
             }}
           />
         </div>
-        <div className="w-1/2">
-          <Drop
-            accept={{
-              "application/json": [".json"],
+        <div className="w-2/3">
+          <h3 className="mb-5">🤝 Proof</h3>
+          <Editor
+            height="40vh"
+            defaultLanguage="json"
+            onChange={(value) => {
+              setProof(JSON.parse(value || ""));
             }}
-            title="proof.json"
-            onDrop={() => {
-              // skip
+            defaultValue={JSON.stringify(proof, null, 2)}
+            options={{
+              readOnly: false,
+              minimap: { enabled: false },
+              fontSize: 16,
             }}
           />
         </div>
